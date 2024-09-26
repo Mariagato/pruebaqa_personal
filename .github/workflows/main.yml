@@ -21,6 +21,10 @@ jobs:
       run: |
         npm install selenium-webdriver chromedriver
 
+    - name: Ejecutar script de Selenium
+      run: |
+        node busquedaDatacrm.js
+
 
     - name: Desplegar a GitHub Pages
       run: |
@@ -31,6 +35,4 @@ jobs:
           git push origin main
       if: success()
       
-    - name: Ejecutar script de Selenium
-      run: |
-        node busquedaDatacrm.js
+    
