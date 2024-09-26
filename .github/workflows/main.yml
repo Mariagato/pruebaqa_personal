@@ -32,7 +32,7 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add resultado.html
           git commit -m "Desplegar resultado de Selenium en Pages"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Mariagato/pruebaqa_personal.git main
+          git push https://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@github.com/Mariagato/pruebaqa_personal.git main
       if: success()
       
     
