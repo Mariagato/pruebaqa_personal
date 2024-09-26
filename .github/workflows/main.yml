@@ -24,11 +24,11 @@ jobs:
 
     - name: Desplegar a GitHub Pages
       run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+          git config --global user.name 'Mariagato'
+          git config --global user.email 'mhurtado1025@cue.edu.co'
           git add resultado.html
           git commit -m "Desplegar resultado de Selenium en Pages"
-          git push -u origin main
+          git push origin main
       if: success()
       
     - name: Ejecutar script de Selenium
