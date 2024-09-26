@@ -28,7 +28,7 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add resultado.html
           git commit -m "Desplegar resultado de Selenium en Pages"
-          git push origin gh-pages
+          git push -u origin main
       if: success()
       
     - name: Ejecutar script de Selenium
