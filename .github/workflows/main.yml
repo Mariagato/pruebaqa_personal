@@ -21,6 +21,16 @@ jobs:
       run: |
         npm install selenium-webdriver chromedriver
 
+
+    - name: Desplegar a GitHub Pages
+      run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add resultado.html
+          git commit -m "Desplegar resultado de Selenium en Pages"
+          git push origin gh-pages
+      if: success()
+      
     - name: Ejecutar script de Selenium
       run: |
         node busquedaDatacrm.js
