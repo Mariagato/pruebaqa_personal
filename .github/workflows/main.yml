@@ -28,9 +28,11 @@ jobs:
 
     - name: Desplegar a GitHub Pages
       run: |
+          git config --global user.name 'Mariagato'
+          git config --global user.email 'mhurtado1025@cue.edu.co'
           git add resultado.html
           git commit -m "Desplegar resultado de Selenium en Pages"
-          git push origin main
+          git push https://x-access-token:${{ secrets.TOKEN_PRUEBA }}@github.com/Mariagato/pruebaqa_personal.git main
       if: success()
       
     
