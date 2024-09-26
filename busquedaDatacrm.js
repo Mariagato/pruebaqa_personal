@@ -48,7 +48,7 @@ async function buscarDatacrm() {
         </body>
         </html>`;
 
-        fs.writeFileSync('resultado.html', resultadoHTML);
+        fs.writeFileSync('index.html', resultadoHTML);
     } catch (error) {
         console.error('Ocurrió un error:', error);
         process.exit(1); // Asegura que GitHub Actions detecte el error
