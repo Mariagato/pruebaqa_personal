@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+    
 jobs:
   selenium-test:
     runs-on: ubuntu-latest
@@ -24,5 +27,12 @@ jobs:
     - name: Ejecutar script de Selenium
       run: |
         node busquedaDatacrm.js
-      
-    
+
+    - name: Desplegar a GitHub Pages
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git pull origin gh-pages || true 
+        git add index.html
+        git commit -m "Desplegar resultado de Selenium" || echo "No hay cambios nuevos"
+        git push https://${{ secrets.TOKEN_GITHUB }}@github.com/Mariagato/pruebaqa_personal.git HEAD:main   
