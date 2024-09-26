@@ -1,5 +1,7 @@
 // busquedaDatacrm.js
 
+const fs = require('fs');
+
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
@@ -38,6 +40,15 @@ async function buscarDatacrm() {
         await driver.wait(until.titleContains('datacrm'), 10000);
 
         console.log('Búsqueda completada exitosamente.');
+        const resultadoHTML = `
+        <html>
+        <body>
+            <h1>Búsqueda de datacrm completada</h1>
+            <p>La búsqueda en Google fue exitosa.</p>
+        </body>
+        </html>`;
+
+        fs.writeFileSync('resultado.html', resultadoHTML);
     } catch (error) {
         console.error('Ocurrió un error:', error);
         process.exit(1); // Asegura que GitHub Actions detecte el error
@@ -45,6 +56,8 @@ async function buscarDatacrm() {
         // Cierra el navegador
         await driver.quit();
     }
+
+
 }
 
 buscarDatacrm();
