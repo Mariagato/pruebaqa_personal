@@ -34,7 +34,7 @@ async function buscarDatacrm() {
         let cajaBusqueda = await driver.findElement(By.name('q'));
 
         // Ingresa "datacrm" y presiona Enter
-        await cajaBusqueda.sendKeys('datacrm', Key.RETURN);
+        await cajaBusqueda.sendKeys('maria gomez', Key.RETURN);
 
         // Espera a que se carguen los resultados
         await driver.wait(until.titleContains('maria gomez'), 10000);
