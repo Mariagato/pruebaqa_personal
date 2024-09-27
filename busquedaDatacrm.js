@@ -14,13 +14,13 @@ async function buscarDatacrm() {
 
     // Inicia el navegador (Chrome en este caso)
     let driver = await new Builder()
-        .forBrowser('chrome')
+        .forBrowser('bing')
         .setChromeOptions(options)
         .build();
 
     try {
         // Navega a Google
-        await driver.get('https://www.google.com');
+        await driver.get('https://www.bing.com');
 
         // Acepta las cookies si es necesario
         try {
@@ -37,17 +37,12 @@ async function buscarDatacrm() {
         await cajaBusqueda.sendKeys('datacrm', Key.RETURN);
 
         // Espera a que se carguen los resultados
-        await driver.wait(until.titleContains('datacrm'), 10000);
+        await driver.wait(until.titleContains('maria gomez'), 10000);
+      
 
         console.log('Búsqueda completada exitosamente.');
-        const resultadoHTML = `
-        <html>
-        <body>
-            <h1>Búsqueda de datacrm completada</h1>
-            <p>La búsqueda en Google fue exitosa.</p>
-        </body>
-        </html>`;
-
+        const resultadoHTML = driver.execute_script("return document.body.innerHTML;");
+        print(resultadoHTML);
         fs.writeFileSync('index.html', resultadoHTML);
     } catch (error) {
         console.error('Ocurrió un error:', error);
